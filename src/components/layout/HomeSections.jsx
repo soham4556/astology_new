@@ -427,7 +427,7 @@ export default function HomeSections() {
             <article>
               <span>📞</span>
               <div>
-                <p>+91 89562 44120</p>
+                <p>+91 7030806080</p>
                 <small>
                   {pickText(
                     "सोम-शनि 10am - 8pm",
