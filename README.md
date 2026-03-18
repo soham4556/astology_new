@@ -1,4 +1,4 @@
-# Pavitra Jyotish - Production Astrology Web App
+# Nakshatra Jyotish Production Web App
 
 Production-ready full-stack astrology application with React frontend, Supabase backend services, AstrologyAPI integration, and Hostinger VPS deployment support.
 
