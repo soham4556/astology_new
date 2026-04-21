@@ -1,497 +1,266 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "../../hooks/useLanguage";
 import { RASHI_DATA } from "../../utils/constants";
+import AstrologySeoContent from "./AstrologySeoContent";
+import { 
+  ChevronLeft, 
+  ChevronRight, 
+  Plus, 
+  Minus, 
+  X,
+  MessageSquare,
+  Star as StarIcon
+} from "lucide-react";
+
+const TESTIMONIALS = [
+  { name: { mr: "राहुल कुलकर्णी", hi: "राहुल कुलकर्णी", en: "Rahul Kulkarni" }, text: { mr: "आचार्यजींनी दिलेली माहिती एकदम अचूक निघाली. माझ्या करिअरमधील अडथळे आता दूर झाले आहेत.", hi: "आचार्य जी की भविष्यवाणियां एकदम सटीक थीं। मेरे करियर की बाधाएं अब दूर हो गई हैं।", en: "Acharya ji's predictions were spot on. My career hurdles have finally been resolved." }, rating: 5 },
+  { name: { mr: "प्रिया शर्मा", hi: "प्रिया शर्मा", en: "Priya Sharma" }, text: { mr: "विवाह कुंडली मिलानसाठी आचार्य रतिश कुमार उत्तम आहेत. त्यांचे साधे उपाय खूप गुणकारी ठरले.", hi: "विवाह कुंडली मिलान के लिए आचार्य रतिश कुमार सर्वश्रेष्ठ हैं। उनके साधारण उपाय बहुत प्रभावी रहे।", en: "Acharya Ratish Kumar is the best for marriage matching. His simple remedies worked wonders." }, rating: 5 },
+  { name: { mr: "अमित पाटील", hi: "अमित पाटील", en: "Amit Patil" }, text: { mr: "वास्तू सल्ल्यामुळे माझ्या घरामध्ये आता सकारात्मक ऊर्जा जाणवते. खूप खूप धन्यवाद!", hi: "वास्तु परामर्श के बाद मेरे घर में सकारात्मक ऊर्जा का संचार हुआ है। बहुत-बहुत धन्यवाद!", en: "After the Vastu consultation, I can feel the positive energy in my home. Thank you so much!" }, rating: 5 }
+];
+
+const FAQS = [
+  { q: { mr: "परामर्श घेण्यासाठी काय माहिती द्यावी लागते?", hi: "परामर्श के लिए क्या जानकारी देनी होती है?", en: "What information is needed for a consultation?" }, a: { mr: "आम्हाला तुमची अचूक जन्म तारीख, जन्म वेळ आणि जन्म ठिकाण आवश्यक असते.", hi: "हमें आपकी सटीक जन्म तिथि, जन्म का समय और जन्म स्थान की आवश्यकता होती है।", en: "We need your exact date of birth, time of birth, and place of birth." } },
+  { q: { mr: "तुमचे उपाय खूप महाग असतात का?", hi: "क्या आपके उपाय बहुत महंगे होते हैं?", en: "Are the remedies expensive?" }, a: { mr: "नाही! आम्ही अतिशय साधे, नैसर्गिक आणि घरच्या घरी करता येण्यासारखे प्रभावी उपाय सुचवतो.", hi: "नहीं! हम बहुत ही सरल और प्राकृतिक उपाय सुझाते हैं जो आप स्वयं कर सकते हैं।", en: "No! We suggest very simple, natural, and effective remedies that you can do yourself." } },
+  { q: { mr: "ऑनलाईन कन्सल्टेशन शक्य आहे का?", hi: "क्या ऑनलाइन परामर्श संभव है?", en: "Is online consultation possible?" }, a: { mr: "हो, आचार्य रतिश कुमार व्हिडिओ कॉल किंवा फोनद्वारे जगभरात मार्गदर्शन करतात.", hi: "हाँ, आचार्य रतिश कुमार वीडियो कॉल या फोन के माध्यम से दुनिया भर में मार्गदर्शन करते हैं।", en: "Yes, Acharya Ratish Kumar provides guidance worldwide via video call or phone." } }
+];
 
 const SERVICE_ITEMS = [
   {
     icon: "🧿",
-    titleMr: "जन्मकुंडली डीप डाइव्ह",
-    titleHi: "जन्मकुंडली डीप डाइव",
-    titleEn: "Birth Chart Deep Dive",
-    subtitle: "BIRTH CHART",
-    descMr:
-      "तुमच्या ग्रहस्थितीवर आधारित करिअर, आरोग्य, नाते आणि आर्थिक निर्णयांसाठी तपशीलवार मार्गदर्शन.",
-    descHi:
-      "आपकी कुंडली के आधार पर करियर, स्वास्थ्य, रिश्ते और वित्त के लिए स्पष्ट मार्गदर्शन.",
-    descEn:
-      "Detailed chart-based guidance for career, health, relationships, and financial decisions.",
-    priceMr: "₹599 पासून",
-    priceHi: "₹599 से",
-    priceEn: "From ₹599",
+    titleMr: "जन्मकुंडली सखोल विश्लेषण",
+    titleHi: "जन्मकुंडली गहन विश्लेषण",
+    titleEn: "Birth Chart In-depth Analysis",
+    descMr: "तुमच्या ग्रहस्थितीवर आधारित करिअर, आरोग्य आणि जीवनातील महत्त्वाच्या निर्णयांसाठी मार्गदर्शन.",
+    descHi: "आपकी कुंडली के आधार पर जीवन के महत्वपूर्ण निर्णयों के लिए मार्गदर्शन।",
+    descEn: "Detailed guidance for life's important decisions based on your planetary positions.",
+    link: "/services/kundali-analysis",
   },
   {
     icon: "🫱🏼‍🫲🏽",
-    titleMr: "कुंडली जुळवणी",
-    titleHi: "कुंडली मिलान",
-    titleEn: "Kundali Compatibility",
-    subtitle: "COMPATIBILITY",
-    descMr:
-      "अष्टकूट, मंगळ आणि व्यवहारिक पैलूंसह relationship compatibility report मिळवा.",
-    descHi:
-      "अष्टकूट, मांगलिक और व्यवहारिक पहलुओं के साथ relationship compatibility report पाएँ.",
-    descEn:
-      "Get a compatibility report combining Ashtakoot, Manglik, and practical relationship factors.",
-    priceMr: "₹899 पासून",
-    priceHi: "₹899 से",
-    priceEn: "From ₹899",
+    titleMr: "विवाह कुंडली जुळवणी",
+    titleHi: "विवाह कुंडली मिलान",
+    titleEn: "Marriage Compatibility",
+    descMr: "अष्टकूट गुणमिलान आणि मांगलिक दोषांचे सखोल विश्लेषण.",
+    descHi: "अष्टकूट गुण मिलान और मांगलिक दोष का गहन विश्लेषण।",
+    descEn: "Detailed analysis of Ashtakoot Guna Milan and Manglik Dosha.",
+    link: "/services/marriage-matching",
   },
   {
-    icon: "📊",
-    titleMr: "करिअर टाइमिंग मॅप",
-    titleHi: "कैरियर टाइमिंग मैप",
-    titleEn: "Career Timing Map",
-    subtitle: "CAREER TIMING",
-    descMr:
-      "जॉब switch, promotion किंवा business launch साठी योग्य कालावधी शोधा.",
-    descHi: "जॉब switch, promotion या business launch के लिए सही समय पहचानें.",
-    descEn:
-      "Identify the right windows for job change, promotions, or a business launch.",
-    priceMr: "₹1099 पासून",
-    priceHi: "₹1099 से",
-    priceEn: "From ₹1099",
-  },
-  {
-    icon: "🪔",
-    titleMr: "उपाय आणि पूजा योजना",
-    titleHi: "उपाय और पूजा योजना",
-    titleEn: "Remedies and Puja Plan",
-    subtitle: "REMEDIES",
-    descMr:
-      "साडेसाती, कालसर्प व इतर दोषांसाठी practical, साधे आणि वैदिक उपाय मिळवा.",
-    descHi:
-      "साढ़ेसाती, कालसर्प और अन्य दोषों के लिए practical और वैदिक उपाय पाएँ.",
-    descEn:
-      "Get practical Vedic remedies and puja guidance for Sade Sati, Kaal Sarp, and related doshas.",
-    priceMr: "₹699 पासून",
-    priceHi: "₹699 से",
-    priceEn: "From ₹699",
+    icon: "🏠",
+    titleMr: "वास्तु शास्त्र सल्ला",
+    titleHi: "वास्तु शास्त्र परामर्श",
+    titleEn: "Vastu Shastra Consultation",
+    descMr: "घर आणि कामाच्या ठिकाणी सकारात्मक ऊर्जा वाढवण्यासाठी उपाय.",
+    descHi: "घर और कार्यस्थल पर सकारात्मक ऊर्जा के लिए सरल वास्तु उपाय।",
+    descEn: "Vastu remedies to enhance positive energy at your home and workplace.",
+    link: "/services/vastu-consultation",
   },
 ];
 
-const TESTIMONIALS = [
-  {
-    name: "साक्षी देशमुख",
-    city: "पुणे",
-    lang: "मराठी",
-    textMr:
-      "रिपोर्ट खूप structured होता. काय करायचे आणि कधी करायचे हे स्पष्ट समजले.",
-    textHi:
-      "रिपोर्ट बहुत structured था. क्या करना है और कब करना है, बिल्कुल clear हुआ.",
-    textEn:
-      "The report was highly structured. It clearly explained what to do and when to do it.",
-  },
-  {
-    name: "काव्या त्रिपाठी",
-    city: "पुणे",
-    lang: "हिंदी",
-    textMr:
-      "Consultation practical होता आणि unnecessary भीती न दाखवता मार्गदर्शन मिळाले.",
-    textHi: "Consultation practical था और डराने के बजाय साफ guidance मिला.",
-    textEn:
-      "The consultation was practical and gave clear guidance without unnecessary fear.",
-  },
-  {
-    name: "Rhea Naik",
-    city: "Pune",
-    lang: "English",
-    textMr:
-      "Timing recommendations were precise and easy to apply in real life.",
-    textHi:
-      "Timing recommendations precise थे और real-life decisions में काम आए.",
-    textEn:
-      "Timing recommendations were precise and easy to apply in real life.",
-  },
-];
+export default function HomeSections() {
+  const { t, language } = useLanguage();
+  const [selectedRashi, setSelectedRashi] = useState(null);
+  const [testimonialIdx, setTestimonialIdx] = useState(0);
+  const [activeFaq, setActiveFaq] = useState(null);
 
-const LANGUAGE_CARDS = [
-  { code: "MR", line1: "ताऱ्यांमधून दिशा", line2: "जीवनात स्पष्ट कृती" },
-  { code: "HI", line1: "सितारों से संकेत", line2: "फैसले आपके" },
-  { code: "EN", line1: "Read the Sky", line2: "Plan the Next Move" },
-  { code: "GU", line1: "જ્યોતિષ માર્ગ", line2: "તમારા નિર્ણય" },
-  { code: "TA", line1: "ஜோதிடம் வழிகாட்டும்", line2: "உங்கள் முடிவு" },
-  { code: "BN", line1: "তারার পাঠ", line2: "আপনার সিদ্ধান্ত" },
-];
+  const pickText = (mr, hi, en) => {
+    if (language === "mr") return mr;
+    if (language === "hi") return hi;
+    return en;
+  };
 
-function SectionHeading({ eyebrow, title, subtitle }) {
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTestimonialIdx((prev) => (prev + 1) % TESTIMONIALS.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+  };
+
   return (
-    <div className="nova-section-heading">
-      <p className="nova-eyebrow">{eyebrow}</p>
-      <h2>{title}</h2>
-      <p>{subtitle}</p>
+    <div className="nova-home">
+      {/* Rashi Detail Modal */}
+      <AnimatePresence>
+        {selectedRashi && (
+          <div className="rashi-overlay" onClick={() => setSelectedRashi(null)}>
+            <motion.div 
+              className="rashi-modal"
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              onClick={e => e.stopPropagation()}
+            >
+              <button className="rashi-close" onClick={() => setSelectedRashi(null)}><X /></button>
+              <div className="rashi-modal-head">
+                <span className="rashi-sym">{selectedRashi.symbol}</span>
+                <h2>{pickText(selectedRashi.name.mr, selectedRashi.name.hi, selectedRashi.name.en)}</h2>
+              </div>
+              <div className="rashi-modal-body">
+                <p><strong>{pickText("स्वभाव:", "स्वभाव:", "Traits:")}</strong> {pickText(selectedRashi.traits.mr, selectedRashi.traits.hi, selectedRashi.traits.en)}</p>
+                <div className="rashi-stats-small">
+                    <div><span>{pickText("शुभ अंक:", "शुभ अंक:", "Lucky Number:")}</span> <strong>{selectedRashi.luckyNumber}</strong></div>
+                    <div><span>{pickText("शुभ रंग:", "शुभ रंग:", "Lucky Color:")}</span> <strong>{pickText(selectedRashi.luckyColor.mr, selectedRashi.luckyColor.hi, selectedRashi.luckyColor.en)}</strong></div>
+                </div>
+              </div>
+              <Link to="/contact" className="btn-modern-gold" onClick={() => setSelectedRashi(null)}>
+                {pickText("तुमचे भविष्य जाणून घ्या", "अपना भविष्य जानें", "Get Free Advice")}
+              </Link>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
+
+      {/* Hero Section */}
+      <motion.section className="nova-hero">
+        <div className="nova-hero-grid single-col">
+          <motion.div className="hero-main-info" initial="hidden" animate="visible" variants={fadeInUp}>
+            <span className="nova-chip" dangerouslySetInnerHTML={{ __html: t("hero-badge") }} />
+            <h1 dangerouslySetInnerHTML={{ __html: t("hero-title") }} />
+            <p className="nova-hero-sub" dangerouslySetInnerHTML={{ __html: t("hero-subtitle") }} />
+            <div className="nova-cta-row">
+              <Link className="nova-btn-solid" to="/contact">{t("hero-btn1")}</Link>
+              <Link className="nova-btn-ghost" to="/about">{t("hero-btn2")}</Link>
+            </div>
+          </motion.div>
+        </div>
+      </motion.section>
+
+      {/* Rashi Selector Section */}
+      <section className="rashi-selector-section">
+        <div className="container">
+          <SectionHeading eyebrow="Zodiac" title={pickText("तुमची रास निवडा", "अपनी राशि चुनें", "Select Your Rashi")} />
+          <div className="rashi-circle-grid">
+            {RASHI_DATA.map((rashi) => (
+              <motion.div 
+                key={rashi.key}
+                className="rashi-item-modern"
+                whileHover={{ scale: 1.1, backgroundColor: "var(--gold-trace)" }}
+                onClick={() => setSelectedRashi(rashi)}
+              >
+                <span className="rashi-icon-main">{rashi.symbol}</span>
+                <span className="rashi-name-main">{pickText(rashi.hi, rashi.hi, rashi.en)}</span>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* About Teaser */}
+      <section className="nova-about-teaser">
+        <div className="teaser-container">
+          <div className="teaser-grid">
+            <div className="teaser-image">
+              <div className="img-holder">
+                <img src="/acharya-ratish.jpg" alt="Acharya Ratish" />
+              </div>
+            </div>
+            <div className="teaser-text">
+              <span className="teaser-badge">{pickText("मुख्य ज्योतिषी", "मुख्य ज्योतिषी", "Head Astrologer")}</span>
+              <h2>{pickText("आचार्य रतिश कुमार", "आचार्य रतिश कुमार", "Acharya Ratish Kumar")}</h2>
+              <p>{pickText("१५+ वर्षांचा अनुभव आणि हजारो समाधानी कुटुंबे. वैदिक ज्योतिषाचा वारसा आणि आधुनिक दृष्टिकोन.", "१५+ वर्षों का अनुभव और हजारों संतुष्ट परिवार। वैदिक ज्योतिष की विरासत और आधुनिक दृष्टिकोण।", "15+ years of experience and thousands of happy families. A blend of Vedic legacy and modern perspective.")}</p>
+              <Link to="/about" className="teaser-link">{pickText("सविस्तर वाचा ➜", "विस्तार से पढ़ें ➜", "Read More ➜")}</Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Grid */}
+      <section className="nova-services" id="services">
+        <div className="container">
+          <SectionHeading eyebrow="Expertise" title={pickText("आमच्या मुख्य सेवा", "हमारी मुख्य सेवाएं", "Our Core Services")} />
+          <div className="nova-service-grid">
+            {SERVICE_ITEMS.map((service, i) => (
+              <motion.article key={i} className="nova-service-card" whileHover={{ y: -10 }}>
+                <span className="nova-service-icon">{service.icon}</span>
+                <h3>{pickText(service.titleMr, service.titleHi, service.titleEn)}</h3>
+                <p className="nova-service-desc">{pickText(service.descMr, service.descHi, service.descEn)}</p>
+                <Link to={service.link} className="nova-service-link">{pickText("अधिक माहिती ➜", "अधिक जानकारी ➜", "Learn More ➜")}</Link>
+              </motion.article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Slider */}
+      <section className="testimonials-modern">
+        <div className="container">
+          <SectionHeading eyebrow="Reviews" title={pickText("ग्राहकांचे अनुभव", "ग्राहकों के अनुभव", "Success Stories")} />
+          <div className="testimonial-slider-wrap">
+            <AnimatePresence mode="wait">
+              <motion.div 
+                key={testimonialIdx}
+                className="testimonial-card-active"
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+              >
+                <MessageSquare className="quote-icon-alt" size={40} />
+                <p className="testimonial-quote">"{pickText(TESTIMONIALS[testimonialIdx].text.mr, TESTIMONIALS[testimonialIdx].text.hi, TESTIMONIALS[testimonialIdx].text.en)}"</p>
+                <div className="testimonial-author">
+                  <h4>- {pickText(TESTIMONIALS[testimonialIdx].name.mr, TESTIMONIALS[testimonialIdx].name.hi, TESTIMONIALS[testimonialIdx].name.en)}</h4>
+                  <div className="stars">{"★".repeat(5)}</div>
+                </div>
+              </motion.div>
+            </AnimatePresence>
+            <div className="slider-dots">
+              {TESTIMONIALS.map((_, i) => (
+                <span key={i} className={`dot ${i === testimonialIdx ? 'active' : ''}`} onClick={() => setTestimonialIdx(i)}></span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Accordion */}
+      <section className="faq-modern">
+        <div className="container">
+          <SectionHeading eyebrow="FAQ" title={pickText("वारंवार विचारले जाणारे प्रश्न", "अक्सर पूछे जाने वाले प्रश्न", "Common Questions")} />
+          <div className="faq-accordion">
+            {FAQS.map((faq, i) => (
+              <div key={i} className={`faq-item-modern ${activeFaq === i ? 'open' : ''}`} onClick={() => setActiveFaq(activeFaq === i ? null : i)}>
+                <div className="faq-q-modern">
+                  <span>{pickText(faq.q.mr, faq.q.hi, faq.q.en)}</span>
+                  {activeFaq === i ? <Minus size={20} /> : <Plus size={20} />}
+                </div>
+                <AnimatePresence>
+                  {activeFaq === i && (
+                    <motion.div 
+                      className="faq-a-modern"
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <p>{pickText(faq.a.mr, faq.a.hi, faq.a.en)}</p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SEO Content Block */}
+      <div className="container">
+        <AstrologySeoContent pageType="home" />
+      </div>
     </div>
   );
 }
 
-export default function HomeSections() {
-  const navigate = useNavigate();
-  const { t, language } = useLanguage();
-  const [selectedRashi, setSelectedRashi] = useState("");
-  const contentLanguage = ["mr", "hi", "en"].includes(language)
-    ? language
-    : "en";
-
-  const pickText = (mrText, hiText, enText) => {
-    if (contentLanguage === "mr") {
-      return mrText;
-    }
-    if (contentLanguage === "hi") {
-      return hiText;
-    }
-    return enText;
-  };
-
-  const quickInsights = pickText(
-    [
-      "15 मिनिटांत प्रीव्यू रिपोर्ट",
-      "AI + Expert Review Model",
-      "Pune-based team, global support",
-    ],
-    [
-      "15 मिनट में प्रीव्यू रिपोर्ट",
-      "AI + Expert Review Model",
-      "Pune-based team, global support",
-    ],
-    [
-      "Preview report in 15 minutes",
-      "AI + Expert Review Model",
-      "Pune-based team, global support",
-    ],
-  );
-
-  const serviceOptions = pickText(
-    ["जन्मकुंडली विश्लेषण", "कुंडली जुळवणी", "करिअर टाइमिंग", "उपाय आणि पूजा"],
-    ["जन्मकुंडली विश्लेषण", "कुंडली मिलान", "कैरियर टाइमिंग", "उपाय और पूजा"],
-    [
-      "Birth Chart Analysis",
-      "Kundali Matching",
-      "Career Timing",
-      "Remedies & Puja",
-    ],
-  );
-
+function SectionHeading({ eyebrow, title, light }) {
   return (
-    <div className="nova-home">
-      <section className="nova-hero">
-        <div className="nova-hero-grid">
-          <div>
-            <span
-              className="nova-chip"
-              dangerouslySetInnerHTML={{ __html: t("hero-badge") }}
-            />
-
-            <h1 dangerouslySetInnerHTML={{ __html: t("hero-title") }} />
-
-            <p
-              className="nova-hero-sub"
-              dangerouslySetInnerHTML={{ __html: t("hero-subtitle") }}
-            />
-
-            <div className="nova-quick-tags">
-              {quickInsights.map((item) => (
-                <span key={item}>{item}</span>
-              ))}
-            </div>
-
-            <div className="nova-cta-row">
-              <Link className="nova-btn-solid" to="/dashboard">
-                {t("hero-btn1")}
-              </Link>
-              <Link className="nova-btn-ghost" to="/kundali">
-                {t("hero-btn2")}
-              </Link>
-            </div>
-          </div>
-
-          <aside className="nova-hero-panel">
-            <h3>{pickText("आजचा फोकस", "आज का फोकस", "Today's Focus")}</h3>
-            <ul>
-              <li>
-                {pickText(
-                  "वैयक्तिक ग्रहस्थिती",
-                  "व्यक्तिगत ग्रह स्थिति",
-                  "Personal planetary snapshot",
-                )}
-              </li>
-              <li>
-                {pickText(
-                  "नातेसंबंध आणि अनुकूलता",
-                  "रिश्ते और अनुकूलता",
-                  "Relationships and compatibility",
-                )}
-              </li>
-              <li>
-                {pickText(
-                  "करिअर निर्णय विंडो",
-                  "कैरियर निर्णय विंडो",
-                  "Career decision windows",
-                )}
-              </li>
-              <li>
-                {pickText(
-                  "पूजा आणि उपाय सुचना",
-                  "पूजा और उपाय सुझाव",
-                  "Puja and remedies guidance",
-                )}
-              </li>
-            </ul>
-
-            <div className="nova-panel-cta">
-              <p>
-                {pickText(
-                  "आजचे पंचांग पहा",
-                  "आज का पंचांग देखें",
-                  "Check today's Panchang",
-                )}
-              </p>
-              <Link to="/panchang/today">
-                {pickText("आता पहा", "अब देखें", "View now")}
-              </Link>
-            </div>
-          </aside>
-        </div>
-      </section>
-
-      <section className="nova-stats-strip">
-        {[
-          { value: "25+", label: t("stat1") },
-          { value: "5L+", label: t("stat2") },
-          { value: "50+", label: t("stat3") },
-          { value: "12", label: t("stat4") },
-          { value: "4.9", label: t("stat5") },
-        ].map((item) => (
-          <article key={item.value} className="nova-stat">
-            <h3>{item.value}</h3>
-            <p>{item.label}</p>
-          </article>
-        ))}
-      </section>
-
-      <section className="nova-section nova-zodiac">
-        <SectionHeading
-          eyebrow={pickText("राशी निवड", "राशि चयन", "Zodiac Selection")}
-          title={t("rashi-title")}
-          subtitle={pickText(
-            "तुमचा आजचा संकेत पहा",
-            "अपना दैनिक संकेत देखें",
-            "Check your daily sign guidance",
-          )}
-        />
-
-        <div className="nova-zodiac-grid">
-          {RASHI_DATA.map((rashi) => (
-            <button
-              key={rashi.key}
-              type="button"
-              className="nova-zodiac-card"
-              onClick={() => {
-                setSelectedRashi(rashi.key);
-                navigate(`/horoscope?sign=${encodeURIComponent(rashi.key)}`);
-              }}
-            >
-              <span className="nova-zodiac-symbol">{rashi.symbol}</span>
-              <span className="nova-zodiac-hi">{rashi.hi}</span>
-              <span className="nova-zodiac-en">{rashi.en}</span>
-            </button>
-          ))}
-        </div>
-
-        {selectedRashi ? (
-          <p className="nova-selection-note">
-            {pickText("निवडलेली राशी:", "चुनी हुई राशि:", "Selected sign:")}{" "}
-            {selectedRashi}
-          </p>
-        ) : null}
-      </section>
-
-      <section id="services" className="nova-section nova-services">
-        <SectionHeading
-          eyebrow={pickText("विशेष सेवा", "विशेष सेवाएं", "Special Services")}
-          title={t("services-title")}
-          subtitle={pickText(
-            "ज्योतिष + स्पष्ट action plan",
-            "ज्योतिष + स्पष्ट एक्शन प्लान",
-            "Astrology + clear action plan",
-          )}
-        />
-
-        <div className="nova-service-grid">
-          {SERVICE_ITEMS.map((service) => (
-            <article key={service.subtitle} className="nova-service-card">
-              <div className="nova-service-head">
-                <span className="nova-service-icon">{service.icon}</span>
-                <div>
-                  <h3>
-                    {pickText(
-                      service.titleMr,
-                      service.titleHi,
-                      service.titleEn,
-                    )}
-                  </h3>
-                  <p>{service.subtitle}</p>
-                </div>
-              </div>
-
-              <p className="nova-service-desc">
-                {pickText(service.descMr, service.descHi, service.descEn)}
-              </p>
-
-              <div className="nova-service-foot">
-                <span>
-                  {pickText(service.priceMr, service.priceHi, service.priceEn)}
-                </span>
-                <button type="button" onClick={() => navigate("/dashboard")}>
-                  {pickText("बुक करा", "बुक करें", "Book now")}
-                </button>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="nova-section nova-languages">
-        <SectionHeading
-          eyebrow={pickText(
-            "बहुभाषिक सपोर्ट",
-            "बहुभाषी सपोर्ट",
-            "Multilingual Support",
-          )}
-          title={pickText(
-            "तुमच्या भाषेत मार्गदर्शन",
-            "आपकी भाषा में मार्गदर्शन",
-            "Guidance in your language",
-          )}
-          subtitle={pickText(
-            "पारंपरिक ज्ञान, आधुनिक सादरीकरण",
-            "पारंपरिक ज्ञान, आधुनिक प्रस्तुति",
-            "Traditional knowledge, modern presentation",
-          )}
-        />
-
-        <div className="nova-language-grid">
-          {LANGUAGE_CARDS.map((card) => (
-            <article key={card.code} className="nova-language-card">
-              <span>{card.code}</span>
-              <h3>{card.line1}</h3>
-              <p>{card.line2}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="nova-section nova-testimonials">
-        <SectionHeading
-          eyebrow={pickText(
-            "क्लायंट अनुभव",
-            "क्लाइंट अनुभव",
-            "Client Experience",
-          )}
-          title={t("reviews-title")}
-          subtitle={pickText(
-            "विश्वासार्ह सल्ला, स्पष्ट परिणाम",
-            "विश्वसनीय सलाह, स्पष्ट परिणाम",
-            "Reliable advice, clear outcomes",
-          )}
-        />
-
-        <div className="nova-testimonial-grid">
-          {TESTIMONIALS.map((item) => (
-            <article key={item.name} className="nova-testimonial-card">
-              <p>{pickText(item.textMr, item.textHi, item.textEn)}</p>
-              <div>
-                <strong>{item.name}</strong>
-                <span>
-                  {item.city} · {item.lang}
-                </span>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section id="contact" className="nova-section nova-contact">
-        <SectionHeading
-          eyebrow={pickText("थेट संपर्क", "सीधा संपर्क", "Direct Contact")}
-          title={t("contact-title")}
-          subtitle={pickText(
-            "आम्ही 24 तासांत प्रतिसाद देतो",
-            "हम 24 घंटे में जवाब देते हैं",
-            "We respond within 24 hours",
-          )}
-        />
-
-        <div className="nova-contact-grid">
-          <div className="nova-contact-info">
-            <h3>{t("contact-info-title")}</h3>
-
-            <article>
-              <span>📞</span>
-              <div>
-                <p>+91 7030806080</p>
-                <small>
-                  {pickText(
-                    "सोम-शनि 10am - 8pm",
-                    "सोम-शनि 10am - 8pm",
-                    "Mon-Sat 10am - 8pm",
-                  )}
-                </small>
-              </div>
-            </article>
-
-            <article>
-              <span>✉</span>
-              <div>
-                <p>hello@nakshatrapath.in</p>
-                <small>
-                  {pickText(
-                    "24 तासांत उत्तर",
-                    "24 घंटे में उत्तर",
-                    "Reply within 24 hours",
-                  )}
-                </small>
-              </div>
-            </article>
-
-            <article>
-              <span>📍</span>
-              <div>
-                <p>Baner, Pune, Maharashtra - 411045</p>
-                <small>
-                  {pickText("भारत कार्यालय", "भारत कार्यालय", "India office")}
-                </small>
-              </div>
-            </article>
-          </div>
-
-          <form
-            className="nova-contact-form"
-            onSubmit={(event) => {
-              event.preventDefault();
-              navigate("/signup");
-            }}
-          >
-            <h3>{t("form-title")}</h3>
-
-            <label htmlFor="nova-name">{t("form-name-label")}</label>
-            <input id="nova-name" type="text" required />
-
-            <label htmlFor="nova-phone">{t("form-phone-label")}</label>
-            <input id="nova-phone" type="tel" required />
-
-            <label htmlFor="nova-service">{t("form-service-label")}</label>
-            <select id="nova-service" defaultValue={serviceOptions[0]}>
-              {serviceOptions.map((option) => (
-                <option key={option}>{option}</option>
-              ))}
-            </select>
-
-            <label htmlFor="nova-message">{t("form-msg-label")}</label>
-            <textarea id="nova-message" rows={4} />
-
-            <button type="submit">{t("form-btn")}</button>
-          </form>
-        </div>
-      </section>
+    <div className={`nova-section-heading ${light ? "light" : ""}`}>
+      {eyebrow && <span className="eyebrow">{eyebrow}</span>}
+      <h2 dangerouslySetInnerHTML={{ __html: title }} />
+      <div className="heading-line"></div>
     </div>
   );
 }

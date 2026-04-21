@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 
 export default function SeoMeta({ title, description, path = '/', schema, image }) {
-  const siteUrl = import.meta.env.VITE_SITE_URL || 'https://nakshatrapath.in';
+  const siteUrl = import.meta.env.VITE_SITE_URL || 'https://jaimatadiastrology.in';
   const canonicalUrl = new URL(path, siteUrl).toString();
   const ogImage = image || `${siteUrl}/og-image.jpg`;
 

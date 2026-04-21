@@ -9,7 +9,7 @@ export default function NotFoundPage() {
   return (
     <section className="page-shell">
       <SeoMeta
-        title="Page Not Found | NakshatraPath Astrology"
+        title="Page Not Found | Jai Mata Di Astrology"
         description="The requested page could not be found."
         path="/404"
       />

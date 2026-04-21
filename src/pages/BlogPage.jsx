@@ -105,13 +105,13 @@ export default function BlogPage() {
       <SeoMeta
         title={
           isHindi
-            ? "ब्लॉग | NakshatraPath Astrology"
-            : "Blog | NakshatraPath Astrology"
+            ? "ब्लॉग | Jai Mata Di Astrology"
+            : "Blog | Jai Mata Di Astrology"
         }
         description={
           isHindi
-            ? "NakshatraPath Astrology ब्लॉग में वैदिक ज्योतिष पर सरल, आधुनिक और व्यावहारिक लेख पढ़ें।"
-            : "Read practical and modern Vedic astrology articles on the NakshatraPath Astrology blog."
+            ? "Jai Mata Di Astrology ब्लॉग में वैदिक ज्योतिष पर सरल, आधुनिक और व्यावहारिक लेख पढ़ें।"
+            : "Read practical and modern Vedic astrology articles on the Jai Mata Di Astrology blog."
         }
         path="/blog"
       />
@@ -119,7 +119,7 @@ export default function BlogPage() {
       <section className="blog-hero">
         <div className="blog-hero-overlay" />
         <div className="blog-hero-content">
-          <span className="blog-hero-tag">NakshatraPath Journal</span>
+          <span className="blog-hero-tag">Jai Mata Di Journal</span>
           <h1>{isHindi ? "ज्योतिष ब्लॉग" : "Astrology Insights"}</h1>
           <p>
             {isHindi
@@ -160,17 +160,17 @@ export default function BlogPage() {
         ))}
       </section>
 
-      <section className="blog-cta">
-        <h2>
-          {isHindi ? "व्यक्तिगत परामर्श चाहिए?" : "Need Personalized Guidance?"}
+      <section className="blog-cta" style={{ textAlign: 'center', padding: '60px 20px', background: 'var(--surface-1)', borderRadius: 'var(--r-xl)', border: '1px solid var(--border-gold)', margin: '40px auto', maxWidth: '1000px' }}>
+        <h2 style={{ color: 'var(--gold)', fontSize: '2rem', marginBottom: '15px', fontFamily: 'var(--font-deva)' }}>
+          {language === 'mr' ? "वैयक्तिक सल्ला हवा आहे?" : isHindi ? "व्यक्तिगत परामर्श चाहिए?" : "Need Personalized Guidance?"}
         </h2>
-        <p>
-          {isHindi
+        <p style={{ color: 'var(--text-silver)', fontSize: '1.2rem', marginBottom: '25px', fontFamily: 'var(--font-deva)' }}>
+          {language === 'mr' ? "तुमच्या प्रश्नांसाठी वैयक्तिक कुंडलीवर आधारित मार्गदर्शन मिळवा।" : isHindi
             ? "अपने प्रश्नों के लिए व्यक्तिगत कुंडली आधारित मार्गदर्शन प्राप्त करें।"
             : "Get chart-based one-on-one guidance tailored to your exact questions."}
         </p>
-        <Link to="/dashboard" className="btn-primary">
-          {isHindi ? "अभी परामर्श लें" : "Consult Now"}
+        <Link to="/contact" className="btn-primary" style={{ padding: '12px 36px', fontSize: '1rem' }}>
+          {language === 'mr' ? "आताच संपर्क करा" : isHindi ? "अभी परामर्श लें" : "Consult Now"}
         </Link>
       </section>
     </div>
