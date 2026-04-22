@@ -16,3 +16,4 @@ export default function ResultViewer({ title, result }) {
     </section>
   );
 }
+

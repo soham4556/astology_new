@@ -111,7 +111,7 @@ export default function AboutPage() {
 
               <motion.div className="action-row" variants={fadeInUp}>
                 <a href="#biography" className="btn-modern-gold">{pick("माहिती वाचा", "जानकारी पढ़ें", "Read Biography")}</a>
-                <a href="https://wa.me/917030806080" className="whatsapp-ring">
+                <a href="https://wa.me/919801165965" className="whatsapp-ring">
                   <div className="pulse"></div>
                   <Phone size={20} />
                 </a>
@@ -245,7 +245,7 @@ export default function AboutPage() {
               <h2>{pick("तुमचा शुभ काळ कधी सुरू होणार?", "आपका शुभ समय कब शुरू होगा?", "When will your auspicious time begin?")}</h2>
               <p>{pick("आजच आचार्य रतिश कुमार यांच्याशी चर्चा करा।", "आज ही आचार्य रतिश कुमार से चर्चा करें।", "Discuss today with Acharya Ratish Kumar.")}</p>
             </div>
-            <a href="https://wa.me/917030806080" className="btn-modern-white">{pick("सल्ला घ्या", "परामर्श लें", "Get Consultation")}</a>
+            <a href="https://wa.me/919801165965" className="btn-modern-white">{pick("सल्ला घ्या", "परामर्श लें", "Get Consultation")}</a>
           </div>
         </div>
       </section>
@@ -257,3 +257,4 @@ export default function AboutPage() {
     </div>
   );
 }
+

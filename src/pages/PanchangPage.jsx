@@ -177,7 +177,7 @@ export default function PanchangPage() {
                 <Sparkles className="cta-icon" />
                 <h4 style={{ color: '#f0c040', marginBottom: '15px' }}>{pick("मुहूर्त विचारा", "मुहूर्त पूछें", "Ask for Muhurta")}</h4>
                 <p style={{ color: '#f5eeff', opacity: 1, fontSize: '1.1rem' }}>{pick("लग्न, मुंज, गृहप्रवेश किंवा नवीन कार्यासाठी शुभ मुहूर्तासाठी संपर्क करा।", "शादी, मुंडन या गृह प्रवेश के मुहूर्त के लिए अभी संपर्क करें।", "Contact for marriage, thread ceremony, or housewarming auspicious timings.")}</p>
-                <a href="https://wa.me/917030806080" className="btn-sidebar">WhatsApp Chat</a>
+                <a href="https://wa.me/919801165965" className="btn-sidebar">WhatsApp Chat</a>
                 
                 <div className="sidebar-tips" style={{ marginTop: '20px' }}>
                    <h5>{pick("पंचांग मंत्र", "पंचांग मंत्र", "Panchang Mantra")}</h5>
@@ -192,3 +192,4 @@ export default function PanchangPage() {
     </div>
   );
 }
+

@@ -151,11 +151,11 @@ function Footer({ language, t }) {
   ];
 
   const contactItems = [
-    { label: copy.phone, value: "+91 70308 06080", to: "tel:+917030806080" },
+    { label: copy.phone, value: "+91 98011 65965", to: "tel:+919801165965" },
     {
       label: copy.email,
-      value: "contact@jaimatadiastrology.in",
-      to: "mailto:contact@jaimatadiastrology.in",
+      value: "acharyaratishk@gmail.com",
+      to: "mailto:acharyaratishk@gmail.com",
     },
   ];
 
@@ -296,10 +296,11 @@ export default function SiteLayout() {
       </main>
       <Footer language={language} t={t} />
 
-      <a className="whatsapp-fab" href="https://wa.me/917030806080" target="_blank" rel="noopener noreferrer">
+      <a className="whatsapp-fab" href="https://wa.me/919801165965" target="_blank" rel="noopener noreferrer">
         <div className="fab-pulse"></div>
         <Phone size={28} />
       </a>
     </>
   );
 }
+

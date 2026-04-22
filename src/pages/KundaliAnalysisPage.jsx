@@ -133,7 +133,7 @@ export default function KundaliAnalysisPage() {
                 <Sparkles className="cta-icon" />
                 <h4>{pick("सल्ला बुक करा", "परामर्श बुक करें", "Book Appointment")}</h4>
                 <p>{pick("तुमच्या जीवनातील समस्यांवर तोडगा मिळवण्यासाठी आजच संपर्क करा।", "जीवन की समस्याओं के समाधान के लिए आज ही संपर्क करें।", "Contact today for solutions to your life's challenges.")}</p>
-                <a href="https://wa.me/917030806080" className="btn-sidebar">WhatsApp Chat</a>
+                <a href="https://wa.me/919801165965" className="btn-sidebar">WhatsApp Chat</a>
                 <Link to="/contact" className="btn-sidebar ghost">Contact Page</Link>
               </div>
             </div>
@@ -143,3 +143,4 @@ export default function KundaliAnalysisPage() {
     </div>
   );
 }
+

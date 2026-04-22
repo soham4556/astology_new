@@ -104,7 +104,7 @@ export default function EducationAstrologyPage() {
                 <BookOpen className="cta-icon" />
                 <h4>{pick("विद्यार्थी सल्ला", "छात्र परामर्श", "Student Consult")}</h4>
                 <p>{pick("तुमच्या पाल्याच्या उज्ज्वल भविष्यासाठी आजच संपर्क करा।", "अपने बच्चे के उज्ज्वल भविष्य के लिए आज ही संपर्क करें।", "Contact today for the bright future of your child.")}</p>
-                <a href="https://wa.me/917030806080" className="btn-sidebar">WhatsApp Chat</a>
+                <a href="https://wa.me/919801165965" className="btn-sidebar">WhatsApp Chat</a>
                 <Link to="/contact" className="btn-sidebar ghost">Contact Page</Link>
                 
                 <div className="sidebar-tips">
@@ -119,3 +119,4 @@ export default function EducationAstrologyPage() {
     </div>
   );
 }
+

@@ -264,3 +264,4 @@ function SectionHeading({ eyebrow, title, light }) {
     </div>
   );
 }
+

@@ -89,7 +89,7 @@ export default function MarriageMatchingPage() {
                 <Heart className="cta-icon primary-red" />
                 <h4>{pick("विवाह जुळवणी करा", "विवाह मिलान करें", "Get Matching Done")}</h4>
                 <p>{pick("तुमच्या जोडीदारासोबतचे भविष्य जाणण्यासाठी संपर्क साधा।", "अपने साथी के साथ भविष्य जानने के लिए संपर्क करें।", "Contact for a consultation on your future with a partner.")}</p>
-                <a href="https://wa.me/917030806080" className="btn-sidebar solid-primary">WhatsApp Consultation</a>
+                <a href="https://wa.me/919801165965" className="btn-sidebar solid-primary">WhatsApp Consultation</a>
               </div>
             </div>
           </div>
@@ -98,3 +98,4 @@ export default function MarriageMatchingPage() {
     </div>
   );
 }
+

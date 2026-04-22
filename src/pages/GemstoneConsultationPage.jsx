@@ -70,7 +70,7 @@ export default function GemstoneConsultationPage() {
                 <Sparkles className="cta-icon" />
                 <h4>{pick("रत्न शिफारस", "रत्न सिफारिश", "Gem Recommendation")}</h4>
                 <p>{pick("तुमच्या अचूक कुंडलीनुसार रत्नाचा सल्ला मिळवण्यासाठी संपर्क करा।", "अपनी सटीक कुंडली के अनुसार रत्न का परामर्श प्राप्त करें।", "Contact for gemstone advice based on your accurate birth chart.")}</p>
-                <a href="https://wa.me/917030806080" className="btn-sidebar">WhatsApp Chat</a>
+                <a href="https://wa.me/919801165965" className="btn-sidebar">WhatsApp Chat</a>
                 <Link to="/contact" className="btn-sidebar ghost">Contact Page</Link>
               </div>
             </div>
@@ -80,3 +80,4 @@ export default function GemstoneConsultationPage() {
     </div>
   );
 }
+

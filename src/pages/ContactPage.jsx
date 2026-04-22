@@ -30,19 +30,19 @@ export default function ContactPage() {
     {
       icon: Phone,
       title: isHindi ? "कॉल करें" : "Call Support",
-      line1: "+91 70308 06080",
+      line1: "+91 98011 65965",
       line2: isHindi ? "सोम-शनि, 10am - 8pm" : "Mon-Sat, 10am-8pm",
     },
     {
       icon: Mail,
       title: isHindi ? "ईमेल" : "Email",
-      line1: "contact@jaimatadiastrology.in",
+      line1: "acharyaratishk@gmail.com",
       line2: isHindi ? "24 घंटे में उत्तर" : "Response within 24 hours",
     },
     {
       icon: MessageCircle,
       title: isHindi ? "व्हाट्सएप" : "WhatsApp",
-      line1: "+91 70308 06080",
+      line1: "+91 98011 65965",
       line2: isHindi ? "त्वरित सहायता" : "Quick assistance",
     },
   ];
@@ -137,3 +137,4 @@ export default function ContactPage() {
     </div>
   );
 }
+

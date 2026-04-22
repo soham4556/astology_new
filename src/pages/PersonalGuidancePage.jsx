@@ -70,7 +70,7 @@ export default function PersonalGuidancePage() {
                 <User className="cta-icon" />
                 <h4>{pick("खासगी सल्ला", "निजी परामर्श", "Private Consult")}</h4>
                 <p>{pick("तुमची माहिती पूर्णपणे गोपनीय ठेवून आम्ही तुम्हाला मार्गदर्शन देतो।", "आपकी जानकारी पूरी तरह गोपनीय रखकर हम आपको सही दिशा दिखाते हैं।", "We provide guidance while keeping your information strictly confidential.")}</p>
-                <a href="https://wa.me/917030806080" className="btn-sidebar">WhatsApp Chat</a>
+                <a href="https://wa.me/919801165965" className="btn-sidebar">WhatsApp Chat</a>
                 <Link to="/contact" className="btn-sidebar ghost">Contact Page</Link>
               </div>
             </div>
@@ -80,3 +80,4 @@ export default function PersonalGuidancePage() {
     </div>
   );
 }
+

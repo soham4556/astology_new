@@ -23,3 +23,4 @@ export default function SeoMeta({ title, description, path = '/', schema, image 
     </Helmet>
   );
 }
+

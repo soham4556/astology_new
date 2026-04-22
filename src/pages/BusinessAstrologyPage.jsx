@@ -104,7 +104,7 @@ export default function BusinessAstrologyPage() {
                 <ShieldCheck className="cta-icon" />
                 <h4>{pick("व्यापार सल्ला", "व्यापार परामर्श", "Business Consult")}</h4>
                 <p>{pick("तुमच्या व्यवसायाला यशाच्या उंचीवर नेण्यासाठी आजच संपर्क करा।", "अपने व्यवसाय को सफलता की ऊंचाइयों पर ले जाने के लिए आज ही संपर्क करें।", "Contact today to take your business to the heights of success.")}</p>
-                <a href="https://wa.me/917030806080" className="btn-sidebar">WhatsApp Chat</a>
+                <a href="https://wa.me/919801165965" className="btn-sidebar">WhatsApp Chat</a>
                 <Link to="/contact" className="btn-sidebar ghost">Contact Page</Link>
                 
                 <div className="sidebar-tips">
@@ -119,3 +119,4 @@ export default function BusinessAstrologyPage() {
     </div>
   );
 }
+

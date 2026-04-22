@@ -70,7 +70,7 @@ export default function CareerGuidancePage() {
                 <ShieldCheck className="cta-icon" />
                 <h4>{pick("सल्ला मिळवा", "परामर्श प्राप्त करें", "Get Guidance")}</h4>
                 <p>{pick("करियरमधील अडथळे दूर करण्यासाठी संपर्क साधा।", "करियर की बाधाएं दूर करने के लिए आज ही संपर्क करें।", "Contact us today to clear obstacles in your career.")}</p>
-                <a href="https://wa.me/917030806080" className="btn-sidebar">WhatsApp Chat</a>
+                <a href="https://wa.me/919801165965" className="btn-sidebar">WhatsApp Chat</a>
                 <Link to="/contact" className="btn-sidebar ghost">Contact Page</Link>
               </div>
             </div>
@@ -80,3 +80,4 @@ export default function CareerGuidancePage() {
     </div>
   );
 }
+

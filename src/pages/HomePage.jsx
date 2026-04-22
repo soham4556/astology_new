@@ -10,7 +10,7 @@ const schema = {
   "image": "https://jaimatadiastrology.in/logo-large.jpg",
   "@id": "https://jaimatadiastrology.in",
   "url": "https://jaimatadiastrology.in",
-  "telephone": "+91 70308 06080",
+  "telephone": "+91 98011 65965",
   "priceRange": "$$",
   "address": {
     "@type": "PostalAddress",
@@ -59,3 +59,4 @@ export default function HomePage() {
     </>
   );
 }
+

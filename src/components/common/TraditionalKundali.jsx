@@ -513,3 +513,4 @@ function Planets({ x, y, list, vertical = false }) {
     </g>
   );
 }
+

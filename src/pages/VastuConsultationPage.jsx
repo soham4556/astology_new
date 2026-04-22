@@ -84,7 +84,7 @@ export default function VastuConsultationPage() {
                 <Compass className="cta-icon primary-gold" />
                 <h4>{pick("वास्तु सल्ला घ्या", "वास्तु सलाह लें", "Consult Vastu Expert")}</h4>
                 <p>{pick("तुमच्या जागेत शांतता आणि प्रगती आणण्यासाठी आजच सल्ला घ्या।", "अपनी जगह में शांति और समृद्धि के लिए आज ही सलाह लें।", "Take a consultation today for peace and prosperity in your space.")}</p>
-                <a href="https://wa.me/917030806080" className="btn-sidebar">Connect via WhatsApp</a>
+                <a href="https://wa.me/919801165965" className="btn-sidebar">Connect via WhatsApp</a>
               </div>
             </div>
           </div>
@@ -93,3 +93,4 @@ export default function VastuConsultationPage() {
     </div>
   );
 }
+
