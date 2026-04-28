@@ -49,7 +49,10 @@ export default function ContactPage() {
 
   const officePoints = [
     { icon: MapPin, text: "पुणे, महाराष्ट्र, भारत" },
-    { icon: Clock, text: isHindi ? "सुबह 10:00 से रात 8:00" : "10:00 AM to 8:00 PM" },
+    {
+      icon: Clock,
+      text: isHindi ? "सुबह 10:00 से रात 8:00" : "10:00 AM to 8:00 PM",
+    },
     { icon: Globe, text: "www.jaimatadiastrology.in" },
   ];
 
@@ -61,28 +64,42 @@ export default function ContactPage() {
     e.preventDefault();
     setIsSubmitted(true);
     setTimeout(() => {
-        setIsSubmitted(false);
-        setFormState(INITIAL_FORM_STATE);
+      setIsSubmitted(false);
+      setFormState(INITIAL_FORM_STATE);
     }, 5000);
   };
 
   return (
     <div className="page-shell contact-page-shell">
       <SeoMeta
-        title={isHindi ? "संपर्क | Jai Mata Di Astrology" : "Contact | Jai Mata Di Astrology"}
-        description={isHindi ? "आचार्य रतिश कुमार यांच्याशी संपर्क साधा." : "Connect with Acharya Ratish Kumar."}
+        title={
+          isHindi
+            ? "संपर्क | Jai Mata Di Astrology"
+            : "Contact | Jai Mata Di Astrology"
+        }
+        description={
+          isHindi
+            ? "आचार्य रतिश कुमार यांच्याशी संपर्क साधा."
+            : "Connect with Acharya Ratish Kumar."
+        }
         path="/contact"
       />
 
       <div className="page-header contact-hero-header">
         <h1>{isHindi ? "हमसे संपर्क करें" : "Connect with Us"}</h1>
-        <p>{isHindi ? "हम आपके प्रश्नों के लिए हमेशा तत्पर हैं।" : "We are here to help you with your queries."}</p>
+        <p>
+          {isHindi
+            ? "हम आपके प्रश्नों के लिए हमेशा तत्पर हैं।"
+            : "We are here to help you with your queries."}
+        </p>
       </div>
 
       <div className="contact-cards-grid">
         {channels.map((channel) => (
           <article key={channel.title} className="contact-channel-card">
-            <div className="channel-icon-wrap"><channel.icon size={24} /></div>
+            <div className="channel-icon-wrap">
+              <channel.icon size={24} />
+            </div>
             <h3>{channel.title}</h3>
             <p>{channel.line1}</p>
             <span>{channel.line2}</span>
@@ -104,37 +121,62 @@ export default function ContactPage() {
         </aside>
 
         {isSubmitted ? (
-            <motion.div className="contact-success-msg" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-                <div className="success-icon">✓</div>
-                <h3>{isHindi ? "संदेश भेजा गया!" : "Message Sent!"}</h3>
-                <p>{isHindi ? "हम जल्द ही आपसे संपर्क करेंगे।" : "We will get back to you soon."}</p>
-            </motion.div>
+          <motion.div
+            className="contact-success-msg"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+          >
+            <div className="success-icon">✓</div>
+            <h3>{isHindi ? "संदेश भेजा गया!" : "Message Sent!"}</h3>
+            <p>
+              {isHindi
+                ? "हम जल्द ही आपसे संपर्क करेंगे।"
+                : "We will get back to you soon."}
+            </p>
+          </motion.div>
         ) : (
-            <form className="contact-form contact-form-alt" onSubmit={handleSubmit}>
-              <div className="form-group">
-                <label>{isHindi ? "पूरा नाम" : "Full Name"}</label>
-                <input value={formState.name} onChange={updateField("name")} required />
-              </div>
-              <div className="form-group">
-                <label>{isHindi ? "ईमेल" : "Email"}</label>
-                <input type="email" value={formState.email} onChange={updateField("email")} required />
-              </div>
-              <div className="form-group">
-                <label>{isHindi ? "विषय" : "Subject"}</label>
-                <input value={formState.subject} onChange={updateField("subject")} />
-              </div>
-              <div className="form-group">
-                <label>{isHindi ? "संदेश" : "Message"}</label>
-                <textarea value={formState.message} onChange={updateField("message")} />
-              </div>
-              <button type="submit" className="btn-primary contact-submit-btn">
-                {isHindi ? "संदेश भेजें" : "Send Message"} <Send size={16} />
-              </button>
-            </form>
+          <form
+            className="contact-form contact-form-alt"
+            onSubmit={handleSubmit}
+          >
+            <div className="form-group">
+              <label>{isHindi ? "पूरा नाम" : "Full Name"}</label>
+              <input
+                value={formState.name}
+                onChange={updateField("name")}
+                required
+              />
+            </div>
+            <div className="form-group">
+              <label>{isHindi ? "ईमेल" : "Email"}</label>
+              <input
+                type="email"
+                value={formState.email}
+                onChange={updateField("email")}
+                required
+              />
+            </div>
+            <div className="form-group">
+              <label>{isHindi ? "विषय" : "Subject"}</label>
+              <input
+                value={formState.subject}
+                onChange={updateField("subject")}
+              />
+            </div>
+            <div className="form-group">
+              <label>{isHindi ? "संदेश" : "Message"}</label>
+              <textarea
+                value={formState.message}
+                onChange={updateField("message")}
+              />
+            </div>
+            <button type="submit" className="btn-primary contact-submit-btn">
+              {isHindi ? "संदेश भेजें" : "Send Message"} <Send size={16} />
+            </button>
+          </form>
         )}
       </section>
       <AstrologySeoContent pageType="contact" />
     </div>
   );
 }
-

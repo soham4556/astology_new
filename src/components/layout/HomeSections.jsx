@@ -78,6 +78,19 @@ export default function HomeSections() {
     return () => clearInterval(timer);
   }, []);
 
+  // Lock background UI while rashi modal is open
+  useEffect(() => {
+    if (selectedRashi) {
+      document.body.classList.add("rashi-modal-open");
+    } else {
+      document.body.classList.remove("rashi-modal-open");
+    }
+
+    return () => {
+      document.body.classList.remove("rashi-modal-open");
+    };
+  }, [selectedRashi]);
+
   const fadeInUp = {
     hidden: { opacity: 0, y: 30 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
@@ -144,7 +157,7 @@ export default function HomeSections() {
                 onClick={() => setSelectedRashi(rashi)}
               >
                 <span className="rashi-icon-main">{rashi.symbol}</span>
-                <span className="rashi-name-main">{pickText(rashi.hi, rashi.hi, rashi.en)}</span>
+                <span className="rashi-name-main">{pickText(rashi.name.mr, rashi.name.hi, rashi.name.en)}</span>
               </motion.div>
             ))}
           </div>
