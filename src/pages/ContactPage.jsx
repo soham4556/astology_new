@@ -31,7 +31,7 @@ export default function ContactPage() {
       icon: Phone,
       title: isHindi ? "कॉल करें" : "Call Support",
       line1: "+91 98011 65965",
-      line2: isHindi ? "सोम-शनि, 10am - 8pm" : "Mon-Sat, 10am-8pm",
+      line2: isHindi ? "सोम-शनि, सुबह 10:00 - रात 8:00" : "Mon-Sat, 10am-8pm",
     },
     {
       icon: Mail,
@@ -48,7 +48,7 @@ export default function ContactPage() {
   ];
 
   const officePoints = [
-    { icon: MapPin, text: "Pune, Maharashtra, India" },
+    { icon: MapPin, text: "पुणे, महाराष्ट्र, भारत" },
     { icon: Clock, text: isHindi ? "सुबह 10:00 से रात 8:00" : "10:00 AM to 8:00 PM" },
     { icon: Globe, text: "www.jaimatadiastrology.in" },
   ];
@@ -76,7 +76,7 @@ export default function ContactPage() {
 
       <div className="page-header contact-hero-header">
         <h1>{isHindi ? "हमसे संपर्क करें" : "Connect with Us"}</h1>
-        <p>{isHindi ? "तुमच्या प्रश्नांसाठी आम्ही सदैव तत्पर आहोत." : "We are here to help you with your queries."}</p>
+        <p>{isHindi ? "हम आपके प्रश्नों के लिए हमेशा तत्पर हैं।" : "We are here to help you with your queries."}</p>
       </div>
 
       <div className="contact-cards-grid">
@@ -92,7 +92,7 @@ export default function ContactPage() {
 
       <section className="contact-hub">
         <aside className="contact-hub-aside">
-          <h2>{isHindi ? "कार्यालय माहिती" : "Office Info"}</h2>
+          <h2>{isHindi ? "कार्यालय जानकारी" : "Office Info"}</h2>
           <div className="contact-point-list">
             {officePoints.map((point, i) => (
               <div className="contact-point" key={i}>
@@ -106,13 +106,13 @@ export default function ContactPage() {
         {isSubmitted ? (
             <motion.div className="contact-success-msg" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
                 <div className="success-icon">✓</div>
-                <h3>{isHindi ? "संदेश पाठवला!" : "Message Sent!"}</h3>
-                <p>{isHindi ? "आम्ही लवकरच संपर्क करू." : "We will get back to you soon."}</p>
+                <h3>{isHindi ? "संदेश भेजा गया!" : "Message Sent!"}</h3>
+                <p>{isHindi ? "हम जल्द ही आपसे संपर्क करेंगे।" : "We will get back to you soon."}</p>
             </motion.div>
         ) : (
             <form className="contact-form contact-form-alt" onSubmit={handleSubmit}>
               <div className="form-group">
-                <label>{isHindi ? "पूर्ण नाव" : "Full Name"}</label>
+                <label>{isHindi ? "पूरा नाम" : "Full Name"}</label>
                 <input value={formState.name} onChange={updateField("name")} required />
               </div>
               <div className="form-group">
@@ -128,7 +128,7 @@ export default function ContactPage() {
                 <textarea value={formState.message} onChange={updateField("message")} />
               </div>
               <button type="submit" className="btn-primary contact-submit-btn">
-                {isHindi ? "संदेश पाठवा" : "Send Message"} <Send size={16} />
+                {isHindi ? "संदेश भेजें" : "Send Message"} <Send size={16} />
               </button>
             </form>
         )}

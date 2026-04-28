@@ -20,6 +20,8 @@ export default function PanchangPage() {
     return en;
   };
 
+  const L = (obj) => (obj && (obj[language] || obj.en)) || "-";
+
   const todayDate = new Date().toLocaleDateString(language === 'mr' ? 'mr-IN' : language === 'hi' ? 'hi-IN' : 'en-US', {
     day: 'numeric',
     month: 'long',
@@ -56,7 +58,7 @@ export default function PanchangPage() {
                    <span>{pick("आजची ऊर्जा:", "आज की ऊर्जा:", "Today's Energy:")}{" "}
                    <strong>{properData ? "High" : todayTip.energy + "%"}</strong></span>
                 </div>
-                <p className="daily-tip">"{todayTip.tip[language]}"</p>
+                 <p className="daily-tip">"{todayTip?.tip?.[language] || todayTip?.tip?.en || ''}"</p>
              </div>
              
              <div className="panchang-today-stats">
@@ -64,14 +66,14 @@ export default function PanchangPage() {
                   <Moon className="icon" />
                   <div className="stat-content">
                     <span className="stat-label">{pick("तिथी", "तिथि", "Tithi")}</span>
-                    <span className="stat-val">{properData ? properData.tithi[language] : todayTip.tithi[language]}</span>
+                    <span className="stat-val">{L(properData?.tithi)}</span>
                   </div>
                 </div>
                 <div className="stat-item">
                   <Cloud className="icon" />
                   <div className="stat-content">
                     <span className="stat-label">{pick("नक्षत्र", "नक्षत्र", "Nakshatra")}</span>
-                    <span className="stat-val">{properData ? properData.nakshatra[language] : todayTip.nakshatra[language]}</span>
+                    <span className="stat-val">{L(properData?.nakshatra)}</span>
                   </div>
                 </div>
                 <div className="stat-item">
@@ -85,7 +87,7 @@ export default function PanchangPage() {
                   <Zap className="icon" />
                   <div className="stat-content">
                     <span className="stat-label">{pick("योग", "योग", "Yoga")}</span>
-                    <span className="stat-val">{properData ? properData.yoga[language] : "शोभन"}</span>
+                    <span className="stat-val">{properData ? L(properData?.yoga) : (language === 'mr' ? 'शोभन' : language === 'hi' ? 'शोभन' : 'Shobhana')}</span>
                   </div>
                 </div>
              </div>
