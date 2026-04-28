@@ -1,10 +1,17 @@
-import { Helmet } from 'react-helmet-async';
+import { Helmet } from "react-helmet-async";
 
-export default function SeoMeta({ title, description, path = '/', schema, image }) {
-  const siteUrl = import.meta.env.VITE_SITE_URL || 'https://jaimatadiastrology.in';
+export default function SeoMeta({
+  title,
+  description,
+  path = "/",
+  schema,
+  image,
+}) {
+  const siteUrl =
+    import.meta.env.VITE_SITE_URL || "https://jaimatadiastrology.in";
   const canonicalUrl = new URL(path, siteUrl).toString();
   const ogImage = image || `${siteUrl}/og-image.jpg`;
-  const brandTitle = 'जय माता दी ज्योतिष';
+  const brandTitle = "जय माता दी ज्योतिष";
 
   return (
     <Helmet>
@@ -20,8 +27,9 @@ export default function SeoMeta({ title, description, path = '/', schema, image 
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={ogImage} />
       <link rel="canonical" href={canonicalUrl} />
-      {schema ? <script type="application/ld+json">{JSON.stringify(schema)}</script> : null}
+      {schema ? (
+        <script type="application/ld+json">{JSON.stringify(schema)}</script>
+      ) : null}
     </Helmet>
   );
 }
-

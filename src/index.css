@@ -4441,3 +4441,24 @@ header, header.scrolled, .top-bar {
     color: #b77932 !important;
   }
 }
+
+/* Guard against zoom-out showing hidden off-canvas nav */
+html,
+body,
+#root {
+  overflow-x: hidden;
+}
+
+@media (max-width: 768px) {
+  .main-nav {
+    transform: translateX(105%) !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
+
+  .main-nav.mobile-open {
+    transform: translateX(0) !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+  }
+}
