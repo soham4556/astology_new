@@ -86,37 +86,69 @@ const FAQS = [
 const SERVICE_ITEMS = [
   {
     icon: "🧿",
-    titleMr: "जन्मकुंडली सखोल विश्लेषण",
-    titleHi: "जन्मकुंडली गहन विश्लेषण",
-    titleEn: "Birth Chart In-depth Analysis",
-    descMr:
-      "तुमच्या ग्रहस्थितीवर आधारित करिअर, आरोग्य आणि जीवनातील महत्त्वाच्या निर्णयांसाठी मार्गदर्शन.",
-    descHi:
-      "आपकी कुंडली के आधार पर जीवन के महत्वपूर्ण निर्णयों के लिए मार्गदर्शन।",
-    descEn:
-      "Detailed guidance for life's important decisions based on your planetary positions.",
+    titleKey: "nav-kundali",
+    descKey: "serv-kundali-desc",
     link: "/services/kundali-analysis",
   },
   {
     icon: "🫱🏼‍🫲🏽",
-    titleMr: "विवाह कुंडली जुळवणी",
-    titleHi: "विवाह कुंडली मिलान",
-    titleEn: "Marriage Compatibility",
-    descMr: "अष्टकूट गुणमिलान आणि मांगलिक दोषांचे सखोल विश्लेषण.",
-    descHi: "अष्टकूट गुण मिलान और मांगलिक दोष का गहन विश्लेषण।",
-    descEn: "Detailed analysis of Ashtakoot Guna Milan and Manglik Dosha.",
+    titleKey: "nav-marriage",
+    descKey: "serv-marriage-desc",
     link: "/services/marriage-matching",
   },
   {
     icon: "🏠",
-    titleMr: "वास्तु शास्त्र सल्ला",
-    titleHi: "वास्तु शास्त्र परामर्श",
-    titleEn: "Vastu Shastra Consultation",
-    descMr: "घर आणि कामाच्या ठिकाणी सकारात्मक ऊर्जा वाढवण्यासाठी उपाय.",
-    descHi: "घर और कार्यस्थल पर सकारात्मक ऊर्जा के लिए सरल वास्तु उपाय।",
-    descEn:
-      "Vastu remedies to enhance positive energy at your home and workplace.",
+    titleKey: "nav-vastu",
+    descKey: "serv-vastu-desc",
     link: "/services/vastu-consultation",
+  },
+  {
+    icon: "🏗️",
+    titleKey: "nav-land",
+    descKey: "serv-land-desc",
+    link: "/contact",
+  },
+  {
+    icon: "🎓",
+    titleKey: "nav-education",
+    descKey: "serv-edu-desc",
+    link: "/services/education-astrology",
+  },
+  {
+    icon: "🏥",
+    titleKey: "nav-health",
+    descKey: "serv-health-desc",
+    link: "/contact",
+  },
+  {
+    icon: "🧘",
+    titleKey: "nav-family",
+    descKey: "serv-family-desc",
+    link: "/contact",
+  },
+  {
+    icon: "🕒",
+    titleKey: "nav-muhurat",
+    descKey: "serv-muhurat-desc",
+    link: "/contact",
+  },
+  {
+    icon: "✋",
+    titleKey: "nav-palm",
+    descKey: "serv-palm-desc",
+    link: "/contact",
+  },
+  {
+    icon: "🔱",
+    titleKey: "nav-tantra",
+    descKey: "serv-tantra-desc",
+    link: "/contact",
+  },
+  {
+    icon: "📜",
+    titleKey: "nav-ravana",
+    descKey: "serv-ravana-desc",
+    link: "/contact",
   },
 ];
 
@@ -217,7 +249,7 @@ export default function HomeSections() {
                 </div>
               </div>
               <Link
-                to="/contact"
+                to="/book"
                 className="btn-modern-gold"
                 onClick={() => setSelectedRashi(null)}
               >
@@ -251,7 +283,7 @@ export default function HomeSections() {
               dangerouslySetInnerHTML={{ __html: t("hero-subtitle") }}
             />
             <div className="nova-cta-row">
-              <Link className="nova-btn-solid" to="/contact">
+              <Link className="nova-btn-solid" to="/book">
                 {t("hero-btn1")}
               </Link>
               <Link className="nova-btn-ghost" to="/about">
@@ -357,10 +389,10 @@ export default function HomeSections() {
               >
                 <span className="nova-service-icon">{service.icon}</span>
                 <h3>
-                  {pickText(service.titleMr, service.titleHi, service.titleEn)}
+                  {t(service.titleKey)}
                 </h3>
                 <p className="nova-service-desc">
-                  {pickText(service.descMr, service.descHi, service.descEn)}
+                  {t(service.descKey)}
                 </p>
                 <Link to={service.link} className="nova-service-link">
                   {pickText("अधिक माहिती ➜", "अधिक जानकारी ➜", "Learn More ➜")}

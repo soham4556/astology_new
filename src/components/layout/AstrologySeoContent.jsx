@@ -14,7 +14,7 @@ const CONTENT_BY_PAGE = {
 <p>जन्मकुंडली सोबतच वास्तुशास्त्राचाही आपल्या आयुष्यावर मोठा प्रभाव पडतो. ज्या घरात आपण राहतो किंवा ज्या ठिकाणी आपण काम करतो, तिथली ऊर्जा आणि दिशा आपल्या विचारांवर आणि कृतींवर परिणाम करते. जर तुमची कुंडली चांगली असेल पण तुम्ही राहत असलेल्या वास्तूमध्ये दोष असेल, तरीही तुम्हाला अपेक्षित फळ मिळणार नाही. त्यामुळे ज्योतिष आणि वास्तू यांचा समतोल साधणे अत्यंत गरजेचे आहे.</p>
 <h3>उपायांचे महत्त्व (Remedies in Astrology)</h3>
 <p>वैदिक ज्योतिषाचे सर्वात मोठे वैशिष्ठ्य म्हणजे ते केवळ समस्या सांगत नाही तर त्यावर उपायदेखील देते. ग्रहशांतीसाठी मंत्रजप, यज्ञ, दान, रत्ने परिधान करणे किंवा अगदी साधे उपाय जसे की रोज सकाळी सूर्याला जल अर्पण करणे, हे उपाय आपल्या जीवनातील अडचणी कमी करण्यासाठी अत्यंत प्रभावी ठरतात.</p>
-<p>आम्ही "जय माता दी ज्योतिष" च्या माध्यमातून तुम्हाला हेच प्रगल्भ आणि सत्य ज्ञान देण्याचा प्रयत्न करत आहोत. आचार्य रतिश कुमार यांच्या मार्गदर्शनाखाली, आम्ही पारंपारिक वैदिक ज्ञानाला आधुनिक दृष्टिकोनाची जोड देऊन तुमच्या जीवनातील समस्या सोडवण्यास कटिबद्ध आहोत. चला, या प्राचीन विज्ञानाची मदत घेऊन आपले भविष्य अधिक उज्ज्वल आणि सुखमय बनवूया.</p>`,
+<p>आम्ही "आचार्य रतिश कुमार ज्योतिष केन्द्र" च्या माध्यमातून तुम्हाला हेच प्रगल्भ आणि सत्य ज्ञान देण्याचा प्रयत्न करत आहोत. आचार्य रतिश कुमार यांच्या मार्गदर्शनाखाली, आम्ही पारंपारिक वैदिक ज्ञानाला आधुनिक दृष्टिकोनाची जोड देऊन तुमच्या जीवनातील समस्या सोडवण्यास कटिबद्ध आहोत. चला, या प्राचीन विज्ञानाची मदत घेऊन आपले भविष्य अधिक उज्ज्वल आणि सुखमय बनवूया.</p>`,
     hi: `<h2>वैदिक ज्योतिष का महत्व और हमारा जीवन</h2>
 <p>वैदिक ज्योतिष हजारों साल पुराना विज्ञान है जो गहराई से अध्ययन करता है कि ग्रह और तारे हमारे जीवन को कैसे प्रभावित करते हैं। जन्म के समय आकाश में ग्रहों की स्थिति के आधार पर हमारे भाग्य, स्वभाव और संभावित भविष्य का निर्धारण किया जाता है। आज की भागदौड़ भरी जिंदगी में कई लोग तनाव और उलझन का सामना कर रहे हैं। ऐसे समय में वैदिक ज्योतिष एक मार्गदर्शक प्रकाश की तरह काम करता है।</p>
 <h3>ग्रह, नक्षत्र और मानव जीवन</h3>
@@ -27,7 +27,7 @@ const CONTENT_BY_PAGE = {
 <p>जन्मकुंडली के साथ-साथ वास्तुशास्त्र का भी हमारे जीवन पर गहरा प्रभाव पड़ता है। जिस घर में हम रहते हैं या काम करते हैं, वहां की ऊर्जा हमारी सोच और कार्यों को प्रभावित करती है। इसलिए ज्योतिष और वास्तु के बीच संतुलन बनाना बहुत जरूरी है।</p>
 <h3>उपायों का महत्व (Remedies in Astrology)</h3>
 <p>वैदिक ज्योतिष की सबसे बड़ी विशेषता यह है कि यह केवल समस्याएं नहीं बताता बल्कि समाधान भी देता है। ग्रहों की शांति के लिए मंत्र जाप, यज्ञ, दान, रत्न धारण करना या साधारण उपाय जैसे प्रतिदिन सुबह सूर्य को जल चढ़ाना, जीवन की कठिनाइयों को कम करने में बहुत प्रभावी हैं।</p>
-<p>"जय माता दी ज्योतिष" के माध्यम से, हम आपको यही गहन और सच्चा ज्ञान देने का प्रयास कर रहे हैं। आचार्य रतिश कुमार के मार्गदर्शन में, हम आपके जीवन की समस्याओं को वैदिक ज्ञान के माध्यम से हल करने के लिए प्रतिबद्ध हैं।</p>`,
+<p>"आचार्य रतिश कुमार ज्योतिष केन्द्र" के माध्यम से, हम आपको यही गहन और सच्चा ज्ञान देने का प्रयास कर रहे हैं। आचार्य रतिश कुमार के मार्गदर्शन में, हम आपके जीवन की समस्याओं को वैदिक ज्ञान के माध्यम से हल करने के लिए प्रतिबद्ध हैं।</p>`,
     en: `<h2>The Significance of Vedic Astrology in Modern Life</h2>
 <p>Vedic Astrology is a profoundly ancient science that studies how the positions of planets and stars influence our lives. Based on planetary alignments at the exact moment of your birth, it decodes your destiny, nature, and future potential. In today's fast-paced world, many people deal with immense stress and confusion. During such times, Vedic Astrology acts as a guiding light.</p>
 <h3>Planets, Constellations, and Human Existence</h3>
@@ -40,7 +40,7 @@ const CONTENT_BY_PAGE = {
 <p>Along with the birth chart, Vastu Shastra (the science of architecture) profoundly impacts our lives. The energy and directional alignment of where you live or work affect your thoughts. Even with a perfect horoscope, a flawed Vastu can obstruct success.</p>
 <h3>The Importance of Astrological Remedies</h3>
 <p>The beauty of Vedic astrology is its focus on remedies. Mantras, yagnas, donations, wearing gemstones, or simply offering water to the Sun—all these remedies neutralize negative planetary influences significantly.</p>
-<p>At "Jai Mata Di Astrology", we strive to share this pure and profound knowledge. Under the guidance of Acharya Ratish Kumar, we bridge the gap between traditional wisdom and modern application to help you overcome life's hurdles.</p>`,
+<p>At "Acharya Ratish Kumar Jyotish Kendra", we strive to share this pure and profound knowledge. Under the guidance of Acharya Ratish Kumar, we bridge the gap between traditional wisdom and modern application to help you overcome life's hurdles.</p>`,
   },
   kundali: {
     mr: `<h2>तुमची जन्मकुंडली (Birth Chart) म्हणजे काय?</h2>

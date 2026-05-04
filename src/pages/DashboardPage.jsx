@@ -41,7 +41,7 @@ export default function DashboardPage() {
   return (
     <section className="page-shell">
       <SeoMeta
-        title="Dashboard | Jai Mata Di Astrology"
+        title="Dashboard | Acharya Ratish Kumar Jyotish Kendra"
         description="Manage your astrology activity, generate reports, and review recent horoscope, kundali, panchang, and match outputs."
         path="/dashboard"
       />

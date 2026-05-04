@@ -105,13 +105,13 @@ export default function BlogPage() {
       <SeoMeta
         title={
           isHindi
-            ? "ब्लॉग | Jai Mata Di Astrology"
-            : "Blog | Jai Mata Di Astrology"
+            ? "ब्लॉग | Acharya Ratish Kumar Jyotish Kendra"
+            : "Blog | Acharya Ratish Kumar Jyotish Kendra"
         }
         description={
           isHindi
-            ? "Jai Mata Di Astrology ब्लॉग में वैदिक ज्योतिष पर सरल, आधुनिक और व्यावहारिक लेख पढ़ें।"
-            : "Read practical and modern Vedic astrology articles on the Jai Mata Di Astrology blog."
+            ? "Acharya Ratish Kumar Jyotish Kendra ब्लॉग में वैदिक ज्योतिष पर सरल, आधुनिक और व्यावहारिक लेख पढ़ें।"
+            : "Read practical and modern Vedic astrology articles on the Acharya Ratish Kumar Jyotish Kendra blog."
         }
         path="/blog"
       />

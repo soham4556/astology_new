@@ -14,7 +14,7 @@ export default function VastuConsultationPage() {
   return (
     <div className="service-detail-page">
       <SeoMeta 
-        title={pick("वास्तु शास्त्र परामर्श | जय माता दी ज्योतिष", "वास्तु शास्त्र परामर्श | जय माता दी ज्योतिष", "Vastu Shastra Consultation | Jai Mata Di Astrology")}
+        title={pick("वास्तु शास्त्र परामर्श | आचार्य रतिश कुमार ज्योतिष केन्द्र", "वास्तु शास्त्र परामर्श | आचार्य रतिश कुमार ज्योतिष केन्द्र", "Vastu Shastra Consultation | Acharya Ratish Kumar Jyotish Kendra")}
         description={pick("घर आणि ऑफिससाठी सकारात्मक ऊर्जेचे नियोजन आचार्य रतिश कुमार यांच्या मार्गदर्शनाखाली।", "घर और ऑफिस के लिए सकारात्मक ऊर्जा का प्रबंधन आचार्य रतिश कुमार के मार्गदर्शन में।", "Positive energy management for home and office under Acharya Ratish Kumar's guidance.")}
       />
 

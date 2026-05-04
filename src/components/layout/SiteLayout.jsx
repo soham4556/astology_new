@@ -18,7 +18,7 @@ import { NAV_ITEMS, TICKER_ITEMS, TRANSLATIONS } from "../../utils/constants";
 const FOOTER_COPY_BY_LANGUAGE = {
   mr: {
     description:
-      "जय माता दी ज्योतिष हे आचार्य रतिश कुमार यांचे एक व्यासपीठ आहे, जे पारंपारिक वैदिक ज्ञान आधुनिक मार्गदर्शनासह एकत्रित करते.",
+      "आचार्य रतिश कुमार ज्योतिष केन्द्र हे आचार्य रतिश कुमार यांचे एक व्यासपीठ आहे, जे पारंपारिक वैदिक ज्ञान आधुनिक मार्गदर्शनासह एकत्रित करते.",
     serviceTitle: "सेवा",
     infoTitle: "माहिती",
     contactTitle: "कार्यालय",
@@ -27,11 +27,11 @@ const FOOTER_COPY_BY_LANGUAGE = {
     address: "पत्ता",
     addressValue: "भारत (India)",
     rights: "सर्वाधिकार सुरक्षित",
-    global: "पुणे आधारित ऑनलाइन ज्योतिष सेवा",
+    global: "मोतिहारी आधारित ऑनलाइन ज्योतिष सेवा",
   },
   hi: {
     description:
-      "जय माता दी ज्योतिष आचार्य रतिश कुमार का एक मंच है, जो पारंपरिक वैदिक ज्ञान को आधुनिक मार्गदर्शन के साथ जोड़ता है।",
+      "आचार्य रतिश कुमार ज्योतिष केन्द्र आचार्य रतिश कुमार का एक मंच है, जो पारंपरिक वैदिक ज्ञान को आधुनिक मार्गदर्शन के साथ जोड़ता है।",
     serviceTitle: "सेवाएं",
     infoTitle: "जानकारी",
     contactTitle: "कार्यालय",
@@ -40,11 +40,11 @@ const FOOTER_COPY_BY_LANGUAGE = {
     address: "पता",
     addressValue: "भारत (India)",
     rights: "सर्वाधिकार सुरक्षित",
-    global: "पुणे आधारित ऑनलाइन ज्योतिष सेवा",
+    global: "मोतिहारी आधारित ऑनलाइन ज्योतिष सेवा",
   },
   en: {
     description:
-      "Jai Mata Di Astrology is a platform by Acharya Ratish Kumar, combining traditional Vedic wisdom with modern practical guidance.",
+      "Acharya Ratish Kumar Jyotish Kendra is a platform by Acharya Ratish Kumar, combining traditional Vedic wisdom with modern practical guidance.",
     serviceTitle: "Services",
     infoTitle: "Information",
     contactTitle: "Office",
@@ -53,7 +53,7 @@ const FOOTER_COPY_BY_LANGUAGE = {
     address: "Address",
     addressValue: "India",
     rights: "All rights reserved",
-    global: "Pune-based online astrology services worldwide",
+    global: "Motihari-based online astrology services worldwide",
   },
 };
 
@@ -141,13 +141,13 @@ function Footer({ language, t }) {
 
   const serviceItems = [
     { label: t("nav-about", "About Acharya"), to: "/about" },
-    { label: t("nav-contact", "Book Appointment"), to: "/contact" },
+    { label: t("nav-contact", "Book Now"), to: "/book" },
   ];
 
   const infoItems = [
     { label: t("nav-home", "Home"), to: "/" },
     { label: t("nav-blog", "Blog"), to: "/blog" },
-    { label: t("nav-contact", "Contact"), to: "/contact" },
+    { label: t("nav-contact", "Consult"), to: "/book" },
   ];
 
   const contactItems = [
@@ -163,7 +163,7 @@ function Footer({ language, t }) {
     <footer>
       <div className="footer-grid">
         <div className="footer-brand">
-          <div className="foot-logo">ॐ Jai Mata Di Astrology</div>
+          <div className="foot-logo">ॐ Acharya Ratish Kumar Jyotish Kendra</div>
           <p className="footer-desc">{copy.description}</p>
         </div>
 
@@ -202,7 +202,7 @@ function Footer({ language, t }) {
       </div>
 
       <div className="footer-bottom">
-        <span>© 2026 Jai Mata Di Astrology</span>
+        <span>© 2026 Acharya Ratish Kumar Jyotish Kendra</span>
         <span>{copy.rights}</span>
         <span>{copy.global}</span>
       </div>
@@ -252,7 +252,7 @@ export default function SiteLayout() {
             <div className="logo-emblem">ॐ</div>
             <div className="logo-text">
               <div className="name-devanagari">
-                {t("logo-name", "जय माता दी ज्योतिष")}
+                {t("logo-name", "आचार्य रतिश कुमार ज्योतिष केन्द्र")}
               </div>
               <div className="name-english">
                 {t("logo-tagline", "Acharya Ratish Kumar")}

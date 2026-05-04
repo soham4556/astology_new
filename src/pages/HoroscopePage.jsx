@@ -25,7 +25,7 @@ export default function HoroscopePage() {
   return (
     <div className="service-detail-page">
       <SeoMeta 
-        title={pick("दैनिक राशीभविष्य | जय माता दी ज्योतिष", "दैनिक राशिफल | जय माता दी ज्योतिष", "Daily Horoscope | Jai Mata Di Astrology")}
+        title={pick("दैनिक राशीभविष्य | आचार्य रतिश कुमार ज्योतिष केन्द्र", "दैनिक राशिफल | आचार्य रतिश कुमार ज्योतिष केन्द्र", "Daily Horoscope | Acharya Ratish Kumar Jyotish Kendra")}
         description={pick("तुमच्या राशीनुसार आजचे भविष्य जाणून घ्या आणि दिवसाचे नियोजन करा।", "अपनी राशि के अनुसार आज का भविष्य जानें और दिन की योजना बनाएं।", "Know today's forecast according to your zodiac and plan your day.")}
       />
 

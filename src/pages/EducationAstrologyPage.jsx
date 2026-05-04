@@ -14,7 +14,7 @@ export default function EducationAstrologyPage() {
   return (
     <div className="service-detail-page">
       <SeoMeta 
-        title={pick("शिक्षण ज्योतिष आणि करिअर निवड | जय माता दी ज्योतिष", "शिक्षा ज्योतिष और करियर चयन | जय माता दी ज्योतिष", "Education Astrology | Jai Mata Di Astrology")}
+        title={pick("शिक्षण ज्योतिष आणि करिअर निवड | आचार्य रतिश कुमार ज्योतिष केन्द्र", "शिक्षा ज्योतिष और करियर चयन | आचार्य रतिश कुमार ज्योतिष केन्द्र", "Education Astrology | Acharya Ratish Kumar Jyotish Kendra")}
         description={pick("विद्यार्थ्यांच्या शैक्षणिक यश, उच्च शिक्षण आणि योग्य विषय निवडीसाठी मार्गदर्शन।", "विद्यार्थियों की शैक्षणिक सफलता, उच्च शिक्षा और सही विषय चयन के लिए मार्गदर्शन।", "Guidance for students' academic success, higher education, and right subject selection.")}
       />
 

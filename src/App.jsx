@@ -17,6 +17,7 @@ import BusinessAstrologyPage from "./pages/BusinessAstrologyPage";
 import EducationAstrologyPage from "./pages/EducationAstrologyPage";
 import HoroscopePage from "./pages/HoroscopePage";
 import PanchangPage from "./pages/PanchangPage";
+import BookingPage from "./pages/BookingPage";
 
 export default function App() {
   return (
@@ -24,6 +25,7 @@ export default function App() {
       <Route element={<SiteLayout />}>
         <Route path="horoscope" element={<HoroscopePage />} />
         <Route path="panchang" element={<PanchangPage />} />
+        <Route path="book" element={<BookingPage />} />
         <Route index element={<HomePage />} />
         <Route path="about" element={<AboutPage />} />
         <Route path="blog" element={<BlogPage />} />

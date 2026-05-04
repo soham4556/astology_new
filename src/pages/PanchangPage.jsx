@@ -45,9 +45,9 @@ export default function PanchangPage() {
     <div className="service-detail-page">
       <SeoMeta
         title={pick(
-          "दैनिक पंचांग | जय माता दी ज्योतिष",
-          "दैनिक पंचांग | जय माता दी ज्योतिष",
-          "Daily Panchang | Jai Mata Di Astrology",
+          "दैनिक पंचांग | आचार्य रतिश कुमार ज्योतिष केन्द्र",
+          "दैनिक पंचांग | आचार्य रतिश कुमार ज्योतिष केन्द्र",
+          "Daily Panchang | Acharya Ratish Kumar Jyotish Kendra",
         )}
         description={pick(
           "आजची तिथी, नक्षत्र, योग आणि शुभ मुहूर्त जाणून घेण्यासाठी आमचे पंचांग तपासा।",

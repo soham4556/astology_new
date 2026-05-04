@@ -17,7 +17,7 @@ export default function KundaliAnalysisPage() {
   return (
     <div className="service-detail-page">
       <SeoMeta 
-        title={pick("जन्मकुंडली सखोल विश्लेषण | जय माता दी ज्योतिष", "जन्मकुंडली गहन विश्लेषण | जय माता दी ज्योतिष", "In-depth Kundali Analysis | Jai Mata Di Astrology")}
+        title={pick("जन्मकुंडली सखोल विश्लेषण | आचार्य रतिश कुमार ज्योतिष केन्द्र", "जन्मकुंडली गहन विश्लेषण | आचार्य रतिश कुमार ज्योतिष केन्द्र", "In-depth Kundali Analysis | Acharya Ratish Kumar Jyotish Kendra")}
         description={pick("आचार्य रतिश कुमार यांच्याकडून तुमची अचूक जन्मकुंडली विश्लेषण करून घ्या।", "आचार्य रतिश कुमार से अपनी सटीक जन्म कुंडली का विश्लेषण करवाएं।", "Get your accurate birth chart analysis by Acharya Ratish Kumar.")}
       />
 

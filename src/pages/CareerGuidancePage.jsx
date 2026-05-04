@@ -14,7 +14,7 @@ export default function CareerGuidancePage() {
   return (
     <div className="service-detail-page">
       <SeoMeta 
-        title={pick("करियर आणि वित्त मार्गदर्शन | जय माता दी ज्योतिष", "करियर एवं वित्त मार्गदर्शन | जय माता दी ज्योतिष", "Career & Finance Guidance | Jai Mata Di Astrology")}
+        title={pick("करियर आणि वित्त मार्गदर्शन | आचार्य रतिश कुमार ज्योतिष केन्द्र", "करियर एवं वित्त मार्गदर्शन | आचार्य रतिश कुमार ज्योतिष केन्द्र", "Career & Finance Guidance | Acharya Ratish Kumar Jyotish Kendra")}
         description={pick("तुमच्या करिअरमधील प्रगती आणि आर्थिक समृद्धीसाठी ज्योतिषी मार्गदर्शन।", "आपके करियर की प्रगति और आर्थिक समृद्धि के लिए ज्योतिषीय मार्गदर्शन।", "Astrological guidance for your career growth and financial prosperity.")}
       />
 

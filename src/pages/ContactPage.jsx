@@ -48,7 +48,7 @@ export default function ContactPage() {
   ];
 
   const officePoints = [
-    { icon: MapPin, text: "पुणे, महाराष्ट्र, भारत" },
+    { icon: MapPin, text: isHindi ? "चाँदमारी, मोतिहारी, बिहार" : "Chandmari, Motihari, Bihar" },
     {
       icon: Clock,
       text: isHindi ? "सुबह 10:00 से रात 8:00" : "10:00 AM to 8:00 PM",
@@ -74,8 +74,8 @@ export default function ContactPage() {
       <SeoMeta
         title={
           isHindi
-            ? "संपर्क | Jai Mata Di Astrology"
-            : "Contact | Jai Mata Di Astrology"
+            ? "संपर्क | Acharya Ratish Kumar Jyotish Kendra"
+            : "Contact | Acharya Ratish Kumar Jyotish Kendra"
         }
         description={
           isHindi

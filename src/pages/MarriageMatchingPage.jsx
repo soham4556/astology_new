@@ -14,7 +14,7 @@ export default function MarriageMatchingPage() {
   return (
     <div className="service-detail-page">
       <SeoMeta 
-        title={pick("विवाह कुंडली जुळवणी | जय माता दी ज्योतिष", "विवाह कुंडली मिलान | जय माता दी ज्योतिष", "Marriage Compatibility Matching | Jai Mata Di Astrology")}
+        title={pick("विवाह कुंडली जुळवणी | आचार्य रतिश कुमार ज्योतिष केन्द्र", "विवाह कुंडली मिलान | आचार्य रतिश कुमार ज्योतिष केन्द्र", "Marriage Compatibility Matching | Acharya Ratish Kumar Jyotish Kendra")}
         description={pick("अचूक गुणमिलान आणि मांगलिक दोषांचे सखोल विश्लेषण आचार्य रतिश कुमार यांच्याकडून।", "सटीक गुण मिलान और मांगलिक दोष का गहन विश्लेषण आचार्य रतिश कुमार से।", "In-depth Guna Milan and Manglik Dosha analysis by Acharya Ratish Kumar.")}
       />
 

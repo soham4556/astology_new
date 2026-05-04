@@ -14,7 +14,7 @@ export default function PersonalGuidancePage() {
   return (
     <div className="service-detail-page">
       <SeoMeta 
-        title={pick("व्यक्तिगत मार्गदर्शन | जय माता दी ज्योतिष", "व्यक्तिगत मार्गदर्शन | जय माता दी ज्योतिष", "Personal Guidance | Jai Mata Di Astrology")}
+        title={pick("व्यक्तिगत मार्गदर्शन | आचार्य रतिश कुमार ज्योतिष केन्द्र", "व्यक्तिगत मार्गदर्शन | आचार्य रतिश कुमार ज्योतिष केन्द्र", "Personal Guidance | Acharya Ratish Kumar Jyotish Kendra")}
         description={pick("तुमच्या खासगी समस्या आणि आध्यात्मिक शंकांसाठी आचार्य रतिश कुमार यांचे मार्गदर्शन।", "आपकी व्यक्तिगत समस्याओं और आध्यात्मिक शंकाओं के लिए आचार्य रतिश कुमार का मार्गदर्शन।", "Guidance for your personal problems and spiritual queries by Acharya Ratish Kumar.")}
       />
 

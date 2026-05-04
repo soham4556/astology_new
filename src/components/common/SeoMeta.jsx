@@ -11,7 +11,7 @@ export default function SeoMeta({
     import.meta.env.VITE_SITE_URL || "https://jaimatadiastrology.in";
   const canonicalUrl = new URL(path, siteUrl).toString();
   const ogImage = image || `${siteUrl}/og-image.jpg`;
-  const brandTitle = "जय माता दी ज्योतिष";
+  const brandTitle = title || "आचार्य रतिश कुमार ज्योतिष केन्द्र";
 
   return (
     <Helmet>

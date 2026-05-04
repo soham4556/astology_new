@@ -6,18 +6,18 @@ const schema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "additionalType": "https://schema.org/Astrologer",
-  "name": "Jai Mata Di Astrology - Acharya Ratish Kumar",
+  "name": "Acharya Ratish Kumar Jyotish Kendra",
   "image": "https://jaimatadiastrology.in/logo-large.jpg",
   "@id": "https://jaimatadiastrology.in",
   "url": "https://jaimatadiastrology.in",
   "telephone": "+91 98011 65965",
   "priceRange": "$$",
-  "address": {
+    "address": {
     "@type": "PostalAddress",
-    "streetAddress": "Pune, Maharashtra",
-    "addressLocality": "Pune",
-    "addressRegion": "MH",
-    "postalCode": "411001",
+    "streetAddress": "Behind Rajendra Hostel, Chandmari",
+    "addressLocality": "Motihari",
+    "addressRegion": "Bihar",
+    "postalCode": "845401",
     "addressCountry": "IN"
   },
   "geo": {
@@ -49,8 +49,8 @@ export default function HomePage() {
   return (
     <>
       <SeoMeta
-        title="Jai Mata Di Astrology | राशिफल, पंचांग, कुंडली मिलान | Acharya Ratish Kumar"
-        description="Acharya Ratish Kumar presents Jai Mata Di Astrology. Get accurate Daily Horoscope (Rashifal), Panchang, Kundali Matching, and Vedic guidance in Hindi, Marathi & English."
+        title="Acharya Ratish Kumar Jyotish Kendra | राशिफल, पंचांग, कुंडली मिलान"
+        description="Acharya Ratish Kumar Jyotish Kendra presents premium Vedic astrology. Get accurate Daily Horoscope (Rashifal), Panchang, Kundali Matching, and Vedic guidance in Hindi, Marathi & English."
         path="/"
         schema={schema}
       />

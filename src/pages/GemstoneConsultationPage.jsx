@@ -14,7 +14,7 @@ export default function GemstoneConsultationPage() {
   return (
     <div className="service-detail-page">
       <SeoMeta 
-        title={pick("रत्न सल्ला आणि शिफारसी | जय माता दी ज्योतिष", "रत्न परामर्श और सिफारिशें | जय माता दी ज्योतिष", "Gemstone Consultation | Jai Mata Di Astrology")}
+        title={pick("रत्न सल्ला आणि शिफारसी | आचार्य रतिश कुमार ज्योतिष केन्द्र", "रत्न परामर्श और सिफारिशें | आचार्य रतिश कुमार ज्योतिष केन्द्र", "Gemstone Consultation | Acharya Ratish Kumar Jyotish Kendra")}
         description={pick("तुमच्या राशी आणि ग्रहांनुसार योग्य रत्न निवडा आणि जीवनात सकारात्मक ऊर्जा मिळवा।", "अपनी राशि और ग्रहों के अनुसार सही रत्न चुनें और सकारात्मक ऊर्जा प्राप्त करें।", "Choose the right gemstone for your zodiac and planets to gain positive energy.")}
       />
 

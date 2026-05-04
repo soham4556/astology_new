@@ -39,9 +39,9 @@ export default function AboutPage() {
     <div className="about-page">
       <SeoMeta
         title={pick(
-          "आचार्य रतिश कुमार | जय माता दी ज्योतिष",
-          "आचार्य रतिश कुमार | जय माता दी ज्योतिष",
-          "About Acharya Ratish Kumar | Jai Mata Di Astrology",
+          "आचार्य रतिश कुमार | आचार्य रतिश कुमार ज्योतिष केन्द्र",
+          "आचार्य रतिश कुमार | आचार्य रतिश कुमार ज्योतिष केन्द्र",
+          "About Acharya Ratish Kumar | Acharya Ratish Kumar Jyotish Kendra",
         )}
         description={pick(
           "आचार्य रतिश कुमार - १५ वर्षांचा अनुभव असलेले प्रख्यात वैदिक ज्योतिषी आणि आध्यात्मिक मार्गदर्शक।",

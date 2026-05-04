@@ -14,7 +14,7 @@ export default function BusinessAstrologyPage() {
   return (
     <div className="service-detail-page">
       <SeoMeta 
-        title={pick("व्यापार ज्योतिष मार्गदर्शन | जय माता दी ज्योतिष", "व्यापार ज्योतिष मार्गदर्शन | जय माता दी ज्योतिष", "Business Astrology | Jai Mata Di Astrology")}
+        title={pick("व्यापार ज्योतिष मार्गदर्शन | आचार्य रतिश कुमार ज्योतिष केन्द्र", "व्यापार ज्योतिष मार्गदर्शन | आचार्य रतिश कुमार ज्योतिष केन्द्र", "Business Astrology | Acharya Ratish Kumar Jyotish Kendra")}
         description={pick("तुमच्या व्यवसायातील यश, भागीदारी आणि आर्थिक वृद्धीसाठी सखोल ज्योतिषीय विश्लेषण।", "आपके व्यवसाय की सफलता, साझेदारी और आर्थिक वृद्धि के लिए गहन ज्योतिषीय विश्लेषण।", "In-depth astrological analysis for your business success, partnership, and financial growth.")}
       />
 
