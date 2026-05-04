@@ -19,9 +19,13 @@ import HoroscopePage from "./pages/HoroscopePage";
 import PanchangPage from "./pages/PanchangPage";
 import BookingPage from "./pages/BookingPage";
 
+import IntroBanner from "./components/layout/IntroBanner";
+
 export default function App() {
   return (
-    <Routes>
+    <>
+      <IntroBanner />
+      <Routes>
       <Route element={<SiteLayout />}>
         <Route path="horoscope" element={<HoroscopePage />} />
         <Route path="panchang" element={<PanchangPage />} />
@@ -45,6 +49,7 @@ export default function App() {
         <Route path="*" element={<Navigate to="/404" replace />} />
       </Route>
     </Routes>
+    </>
   );
 }
 
